@@ -1,5 +1,5 @@
 import pygame
-from text_utils import draw_text, LIGHT_GREY
+from utils import draw_text, LIGHT_GREY
 
 
 class Button:

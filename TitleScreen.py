@@ -1,6 +1,8 @@
 import pygame
-from text_utils import draw_text, title_font, context_font, DARK_GREY, DIM_GREY, WHITE, LIGHT_GREY, BLACK
+
+from utils import draw_text, title_font, context_font, DARK_GREY, DIM_GREY, WHITE, LIGHT_GREY, BLACK
 from button import Button
+from snakeGame import Game
 
 pygame.init()
 
@@ -25,6 +27,9 @@ def start_game():
     MAIN_MENU = False
     GAME_SCREEN = True
 
+    game = Game()
+    game.run()
+
 
 def show_leaders():
     pass
@@ -36,11 +41,6 @@ buttons = [
     Button("Leaderboard", 290, 350, 200, 40, context_font(40), DARK_GREY, DIM_GREY, WHITE, show_leaders),
     Button("Quit", 290, 410, 200, 40, context_font(40), DARK_GREY, DIM_GREY, WHITE, quit)
 ]
-
-
-def draw_game():
-    pygame.draw.rect(SCREEN, LIGHT_GREY, (100, 100, 300, 300))
-    draw_text("This is where the actual game will appear", context_font(45), WHITE, 100, 100, SCREEN)
 
 
 def draw_menu():
@@ -66,8 +66,6 @@ while RUN:
 
     if MAIN_MENU:
         draw_menu()
-    elif GAME_SCREEN:
-        draw_game()
 
     pygame.display.flip()
 pygame.quit()

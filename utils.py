@@ -8,6 +8,7 @@ RED = (255, 0, 0)
 DARK_GREY = (30, 30, 30)
 LIGHT_GREY = (125, 125, 125)
 DIM_GREY = (55, 55, 55)
+GREEN = (0, 255, 0)
 
 
 # define text drawing
