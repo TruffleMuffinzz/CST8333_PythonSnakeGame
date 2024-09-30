@@ -67,7 +67,6 @@ class Snake:
                 return False
 
             if self.body[0] in self.body[1:]:
-                print("Collision")
                 return False
 
         return True
@@ -86,7 +85,6 @@ class Snake:
 
         if new_segment:
             self.body.append(new_segment)
-            print(f"added new segment at {new_segment}")
 
     def draw(self):
         for segment in self.body:

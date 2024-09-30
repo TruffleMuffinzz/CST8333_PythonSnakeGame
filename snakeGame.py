@@ -1,16 +1,23 @@
 import pygame
 import json
+import os
+import sys
 
 from utils import BLACK, draw_text, context_font, WHITE, title_font, LIGHT_GREY
 from snake import Snake
 from food import Food
 
-LEADERBOARD_FILE = 'Assets/leaderboard.json'
+if getattr(sys, 'frozen', False):
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.dirname(__file__)
+
+leaderboard_path = os.path.join(base_path, 'Assets', 'leaderboard.json')
 
 
 def load_leaderboard():
     try:
-        with open(LEADERBOARD_FILE, 'r') as file:
+        with open(leaderboard_path, 'r') as file:
             data = json.load(file)
             print("Loaded leaderboard:", data)
             return data
@@ -23,8 +30,7 @@ def load_leaderboard():
 
 
 def save_leaderboard(leaderboard):
-    with open(LEADERBOARD_FILE, 'w') as file:
-        print("saving leaderboard file")
+    with open(leaderboard_path, 'w') as file:
         json.dump(leaderboard, file, indent=4)
 
 

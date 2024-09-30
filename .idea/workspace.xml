@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38e26a93-61b7-4061-ae54-179d20b9d6be" name="Changes" comment="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected.">
-      <change afterPath="$PROJECT_DIR$/Assets/leaderboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DeJoseph_CST8333.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeJoseph_CST8333.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="38e26a93-61b7-4061-ae54-179d20b9d6be" name="Changes" comment="Added leaderboard json and logic behind leaderboard, adjusted main menu and game over screens to show leaderboard when appropriate.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TitleScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/food.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snakeGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725554509651</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added leaderboard json and logic behind leaderboard, adjusted main menu and game over screens to show leaderboard when appropriate.">
+      <option name="closed" value="true" />
+      <created>1727733451942</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727733451942</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +164,7 @@
     <MESSAGE value="added title screen file, title font, and context font." />
     <MESSAGE value="added buttons to main menu, moved several variables to text_utils, button file to organize" />
     <MESSAGE value="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected." />
+    <MESSAGE value="Added leaderboard json and logic behind leaderboard, adjusted main menu and game over screens to show leaderboard when appropriate." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added leaderboard json and logic behind leaderboard, adjusted main menu and game over screens to show leaderboard when appropriate." />
   </component>
 </project>

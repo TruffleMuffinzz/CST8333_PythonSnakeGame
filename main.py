@@ -1,11 +1,20 @@
 import pygame
 import json
+import os
+import sys
 
-from utils import draw_text, title_font, context_font, DARK_GREY, DIM_GREY, WHITE, LIGHT_GREY, BLACK
+from utils import draw_text, title_font, context_font, DARK_GREY, DIM_GREY, WHITE, BLACK
 from button import Button
 from snakeGame import Game
 
 pygame.init()
+
+if getattr(sys, 'frozen', False):
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.dirname(__file__)
+
+leaderboard_path = os.path.join(base_path, 'Assets', 'leaderboard.json')
 
 # set game window dimensions
 SCREEN_WIDTH = 800
@@ -23,13 +32,10 @@ GAME_SCREEN = False
 SCORE_SCREEN = False
 LEADERBOARD_SCREEN = False
 
-LEADERBOARD_FILE = 'Assets/leaderboard.json'
-
 
 def load_leaderboard():
     try:
-        with open(LEADERBOARD_FILE, 'r') as file:
-            print("opening leaderboard file")
+        with open(leaderboard_path, 'r') as file:
             return json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         return [
