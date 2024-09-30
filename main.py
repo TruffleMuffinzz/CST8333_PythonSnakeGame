@@ -8,6 +8,7 @@ from button import Button
 from snakeGame import Game
 
 pygame.init()
+pygame.font.init()
 
 if getattr(sys, 'frozen', False):
     base_path = sys._MEIPASS
@@ -70,7 +71,7 @@ def back_to_menu():
 buttons = [
     Button("Start Game", 290, 290, 200, 40, context_font(40), DARK_GREY, DIM_GREY, WHITE, start_game),
     Button("Leaderboard", 290, 350, 200, 40, context_font(40), DARK_GREY, DIM_GREY, WHITE, show_leaders),
-    Button("Quit", 290, 410, 200, 40, context_font(40), DARK_GREY, DIM_GREY, WHITE, quit)
+    Button("Quit", 290, 410, 200, 40, context_font(40), DARK_GREY, DIM_GREY, WHITE, pygame.quit)
 ]
 
 leaderboard_buttons = [
