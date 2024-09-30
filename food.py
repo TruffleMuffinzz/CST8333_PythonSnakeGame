@@ -11,6 +11,7 @@ class Food:
         self.food_pos = self.generate_food_pos()
         self.rect = pygame.Rect(self.food_pos[0], self.food_pos[1], self.snake_size, self.snake_size)
 
+    # This will generate the food at a random location on the screen, includes padding to make sure it is on the screen
     def generate_food_pos(self):
         max_x = (self.screen.get_width() // self.snake_size) - 1
         max_y = (self.screen.get_height() // self.snake_size) - 1

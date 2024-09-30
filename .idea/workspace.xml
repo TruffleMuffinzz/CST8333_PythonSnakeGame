@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38e26a93-61b7-4061-ae54-179d20b9d6be" name="Changes" comment="added buttons to main menu, moved several variables to text_utils, button file to organize">
-      <change afterPath="$PROJECT_DIR$/food.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snake.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snakeGame.py" afterDir="false" />
+    <list default="true" id="38e26a93-61b7-4061-ae54-179d20b9d6be" name="Changes" comment="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected.">
+      <change afterPath="$PROJECT_DIR$/Assets/leaderboard.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DeJoseph_CST8333.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeJoseph_CST8333.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TitleScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/TitleScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TitleScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/food.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snakeGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,26 +37,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.TitleScreen.executor": "Run",
-    "Python.button.executor": "Run",
-    "Python.game.executor": "Run",
-    "Python.snake.executor": "Run",
-    "Python.snakeGame.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.TitleScreen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.button.executor&quot;: &quot;Run&quot;,
+    &quot;Python.game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.snake.executor&quot;: &quot;Run&quot;,
+    &quot;Python.snakeGame.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lainey/Documents/PythonProject/CST8333_PythonSnakeGame-master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Lainey\Documents\PythonProject\DeJoseph_CST8333\Assets" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="TitleScreen" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DeJoseph_CST8333" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -69,7 +71,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TitleScreen.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Lainey\Documents\PythonProject\DeJoseph_CST8333\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -80,7 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TitleScreen" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722479226374</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected.">
+      <option name="closed" value="true" />
+      <created>1725554509651</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725554509651</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +160,7 @@
     <MESSAGE value="Init commit" />
     <MESSAGE value="added title screen file, title font, and context font." />
     <MESSAGE value="added buttons to main menu, moved several variables to text_utils, button file to organize" />
-    <option name="LAST_COMMIT_MESSAGE" value="added buttons to main menu, moved several variables to text_utils, button file to organize" />
+    <MESSAGE value="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added snake, food, game over screen, and score counter. Logic for collisions between snake and food, snake and snake. Implemented the game to work when start is selected." />
   </component>
 </project>

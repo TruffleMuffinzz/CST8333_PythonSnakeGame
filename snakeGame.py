@@ -1,8 +1,42 @@
 import pygame
+import json
 
 from utils import BLACK, draw_text, context_font, WHITE, title_font, LIGHT_GREY
 from snake import Snake
 from food import Food
+
+LEADERBOARD_FILE = 'Assets/leaderboard.json'
+
+
+def load_leaderboard():
+    try:
+        with open(LEADERBOARD_FILE, 'r') as file:
+            data = json.load(file)
+            print("Loaded leaderboard:", data)
+            return data
+    except (FileNotFoundError, json.JSONDecodeError):
+        return [
+            {"player": "AAA", "score": 100},
+            {"player": "BBB", "score": 50},
+            {"player": "CCC", "score": 25}
+        ]
+
+
+def save_leaderboard(leaderboard):
+    with open(LEADERBOARD_FILE, 'w') as file:
+        print("saving leaderboard file")
+        json.dump(leaderboard, file, indent=4)
+
+
+def is_high_score(score, leaderboard):
+    return any(score > entry["score"] for entry in leaderboard)
+
+
+def update_leaderboard(player, score, leaderboard):
+    leaderboard.append({"player": player, "score": score})
+    leaderboard.sort(key=lambda x: x["score"], reverse=True)  # sorts by score, highest to lowest
+    leaderboard.pop()  # removes the lowest score from the leaderboard
+    save_leaderboard(leaderboard)
 
 
 class Game:
@@ -27,7 +61,7 @@ class Game:
                     return
 
             if self.game_over:
-                self.show_game_over()
+                self.game_over_with_lb()
                 continue
 
             # telling the game to accept keyboard input
@@ -51,6 +85,15 @@ class Game:
             pygame.display.flip()
             self.clock.tick(60)
 
+    def game_over_with_lb(self):
+        leaderboard = load_leaderboard()
+
+        if is_high_score(self.score, leaderboard):
+            self.prompt_initials()
+        else:
+            self.show_game_over()
+
+    # Game over screen display and logic
     def show_game_over(self):
         self.screen.fill(BLACK)
         # Show the text for the game over screen
@@ -73,10 +116,10 @@ class Game:
                       173,
                       140,
                       self.screen)
-        draw_text("Press Q to Quit or R to restart",
-                  context_font(35),
+        draw_text("Press Q to Quit, R to restart, or L for leaderboard",
+                  context_font(30),
                   WHITE,
-                  193,
+                  125,
                   250,
                   self.screen)
 
@@ -99,6 +142,57 @@ class Game:
                         self.score = 0
                         self.game_over = False
                         waiting = False
+                    if event.key == pygame.K_l:
+                        self.show_leaderboard()
+                        self.show_game_over()
+
+    def show_leaderboard(self):
+        leaderboard = load_leaderboard()
+
+        while True:
+            self.screen.fill(BLACK)
+            draw_text("Leaderboard", title_font(70), WHITE, 180, 50, self.screen)
+
+            for i, entry in enumerate(leaderboard):
+                draw_text(f"{i + 1}. {entry['player']} - {entry['score']}",
+                          context_font(40), WHITE, 300, 150 + i * 50, self.screen)
+
+            draw_text("Press B to go back", context_font(40), WHITE, 250, 150 + len(leaderboard) * 50 + 20, self.screen)
+
+            pygame.display.flip()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    return
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_b:
+                        return
+
+    def prompt_initials(self):
+        player_initials = ""
+        while True:
+            self.screen.fill(BLACK)
+            draw_text("New High Score!", title_font(70), WHITE, 160, 50, self.screen)
+            draw_text(f"Score: {self.score}", context_font(40), WHITE, 340, 150, self.screen)
+            draw_text(f"Enter your initials: {player_initials}", context_font(40), WHITE, 230, 200, self.screen)
+
+            pygame.display.flip()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    return
+                elif event.type == pygame.KEYDOWN:
+                    if len(player_initials) < 3 and event.unicode.isalpha():
+                        player_initials += event.unicode.upper()
+                    elif event.key == pygame.K_BACKSPACE and len(player_initials) > 0:
+                        player_initials = player_initials[:-1]
+                    elif event.key == pygame.K_RETURN and len(player_initials) == 3:
+                        leaderboard = load_leaderboard()
+                        update_leaderboard(player_initials, self.score, leaderboard)
+                        self.show_game_over()
+                        return
 
     def display_score(self):
         draw_text(f"Score: {self.score}", context_font(40), WHITE, 10, 10, self.screen)
